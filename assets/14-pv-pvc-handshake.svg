@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="720" height="240" viewBox="0 0 720 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Relationship between physical storage, persistent volume, persistent volume claim and pod">
+  
+  <defs>
+    <marker id="ab" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#4f46e5"/>
+    </marker>
+  </defs>
+  <text x="15" y="20" class="b" fill="#475569" font-family="sans-serif" font-size="11px" font-weight="bold">🔗 PV / PVC handshake — how a Pod gets durable storage</text>
+
+  <rect x="20" y="40" width="120" height="150" rx="7" fill="#f1f5f9" stroke="#64748b" stroke-width="1.8"/>
+  <text x="80" y="62" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11px" font-weight="bold">🖴 PHYSICAL</text>
+  <text x="80" y="79" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11px" font-weight="bold">STORAGE</text>
+  <text x="80" y="102" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">the node's disk</text>
+  <text x="80" y="119" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">(or cloud disk)</text>
+  <text x="80" y="146" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">e.g. 500 GB</text>
+  <text x="80" y="166" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">available</text>
+
+  <line x1="140" y1="115" x2="180" y2="115" stroke="#4f46e5" stroke-width="2" marker-end="url(#ab)"/>
+  <text x="160" y="106" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">carve</text>
+
+  <rect x="185" y="40" width="150" height="150" rx="7" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="260" y="62" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11px" font-weight="bold">💾 PV</text>
+  <text x="260" y="79" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">PersistentVolume</text>
+  <line x1="198" y1="88" x2="322" y2="88" stroke="#16a34a" stroke-dasharray="2"/>
+  <text x="260" y="106" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">"I RESERVE</text>
+  <text x="260" y="123" class="c" text-anchor="middle" font-weight="bold" fill="#7c2d12" font-family="monospace" font-size="9.5px">1 GB</text>
+  <text x="260" y="140" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">at /data"</text>
+  <text x="260" y="165" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">status:</text>
+  <text x="260" y="180" class="c" text-anchor="middle" fill="#7c2d12" font-family="monospace" font-size="9.5px">Available</text>
+
+  <line x1="335" y1="115" x2="375" y2="115" stroke="#4f46e5" stroke-width="2" marker-end="url(#ab)"/>
+  <text x="355" y="106" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">claim</text>
+
+  <rect x="380" y="40" width="150" height="150" rx="7" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="455" y="62" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11px" font-weight="bold">🔑 PVC</text>
+  <text x="455" y="79" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">PV Claim</text>
+  <line x1="393" y1="88" x2="517" y2="88" stroke="#d97706" stroke-dasharray="2"/>
+  <text x="455" y="106" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">"I REQUEST</text>
+  <text x="455" y="123" class="c" text-anchor="middle" font-weight="bold" fill="#7c2d12" font-family="monospace" font-size="9.5px">1 GB</text>
+  <text x="455" y="140" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">from the pool"</text>
+  <text x="455" y="165" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">status:</text>
+  <text x="455" y="180" class="c" text-anchor="middle" font-weight="bold" fill="#7c2d12" font-family="monospace" font-size="9.5px">Bound ✅</text>
+
+  <line x1="530" y1="115" x2="570" y2="115" stroke="#4f46e5" stroke-width="2" marker-end="url(#ab)"/>
+  <text x="550" y="106" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">mount</text>
+
+  <rect x="575" y="40" width="130" height="150" rx="7" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="640" y="62" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11px" font-weight="bold">📦 POD</text>
+  <rect x="590" y="75" width="100" height="70" rx="5" fill="#fef9c3" stroke="#ca8a04"/>
+  <text x="640" y="95" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11px" font-weight="bold">🐳 mongo</text>
+  <text x="640" y="114" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">writes to</text>
+  <text x="640" y="131" class="c" text-anchor="middle" fill="#7c2d12" font-family="monospace" font-size="9.5px">/data/db</text>
+  <text x="640" y="167" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">volumeMounts</text>
+  <text x="640" y="182" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">→ the PVC 🔗</text>
+
+  <text x="20" y="220" class="s" fill="#6b7280" font-family="sans-serif" font-size="9.5px">Match on <tspan class="c" font-weight="bold" fill="#7c2d12" font-family="monospace" font-size="9.5px">storageClassName</tspan> + <tspan class="c" font-weight="bold" fill="#7c2d12" font-family="monospace" font-size="9.5px">accessModes</tspan> + capacity → PVC binds to PV. Then the Pod mounts the PVC by <tspan class="c" font-weight="bold" fill="#7c2d12" font-family="monospace" font-size="9.5px">claimName</tspan>.</text>
+</svg>

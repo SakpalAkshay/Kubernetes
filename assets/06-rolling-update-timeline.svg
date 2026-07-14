@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="720" height="240" viewBox="0 0 720 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rolling update timeline showing zero downtime deployment">
+  
+  <text x="15" y="22" class="b" fill="#475569" font-family="sans-serif" font-size="11.5px" font-weight="bold">⏱️ Rolling Update — the old Pod never dies until the new one is Ready</text>
+
+  <line x1="30" y1="200" x2="690" y2="200" stroke="#9ca3af" stroke-width="2"/>
+  <text x="360" y="228" class="t" text-anchor="middle" fill="#4b5563" font-family="sans-serif" font-size="10px" font-weight="bold">TIME →</text>
+
+  <line x1="90" y1="196" x2="90" y2="204" stroke="#9ca3af" stroke-width="2"/>
+  <text x="90" y="218" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">t0</text>
+  <line x1="300" y1="196" x2="300" y2="204" stroke="#9ca3af" stroke-width="2"/>
+  <text x="300" y="218" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">t1</text>
+  <line x1="510" y1="196" x2="510" y2="204" stroke="#9ca3af" stroke-width="2"/>
+  <text x="510" y="218" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">t2</text>
+  <line x1="650" y1="196" x2="650" y2="204" stroke="#9ca3af" stroke-width="2"/>
+  <text x="650" y="218" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">t3</text>
+
+  <rect x="40" y="50" width="215" height="38" rx="5" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8"/>
+  <text x="147" y="66" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11.5px" font-weight="bold">📦 OLD Pod (v2)</text>
+  <text x="147" y="81" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">Running · serving 100% traffic</text>
+
+  <rect x="255" y="50" width="215" height="38" rx="5" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8"/>
+  <text x="362" y="66" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11.5px" font-weight="bold">📦 OLD Pod (v2)</text>
+  <text x="362" y="81" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">STILL Running ✅ (no gap!)</text>
+
+  <rect x="470" y="50" width="90" height="38" rx="5" fill="#fef3c7" stroke="#d97706" stroke-width="1.8" stroke-dasharray="4"/>
+  <text x="515" y="66" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11.5px" font-weight="bold">Terminating</text>
+  <text x="515" y="81" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">graceful</text>
+
+  <rect x="255" y="105" width="215" height="38" rx="5" fill="#fef3c7" stroke="#d97706" stroke-width="1.8"/>
+  <text x="362" y="121" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11.5px" font-weight="bold">📦 NEW Pod (v5)</text>
+  <text x="362" y="136" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">ContainerCreating · 0/1</text>
+
+  <rect x="470" y="105" width="210" height="38" rx="5" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8"/>
+  <text x="575" y="121" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11.5px" font-weight="bold">📦 NEW Pod (v5)</text>
+  <text x="575" y="136" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">Running 1/1 · takes over traffic</text>
+
+  <rect x="40" y="158" width="640" height="26" rx="4" fill="#eff6ff" stroke="#3b82f6" stroke-dasharray="3"/>
+  <text x="360" y="176" class="b" text-anchor="middle" fill="#1d4ed8" font-family="sans-serif" font-size="11.5px" font-weight="bold">🟢 USER-FACING UPTIME: 100% — at every instant, at least one Pod is Running</text>
+</svg>

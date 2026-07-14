@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="720" height="250" viewBox="0 0 720 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Scaling from one replica to four replicas with load balancing">
+  
+  <defs>
+    <marker id="a5" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#0891b2"/>
+    </marker>
+  </defs>
+
+  <text x="15" y="22" class="b" fill="#dc2626" font-family="sans-serif" font-size="11.5px" font-weight="bold">BEFORE — replicas: 1  ⚠️ single point of failure</text>
+  <rect x="20" y="35" width="90" height="42" rx="5" fill="#f1f5f9" stroke="#64748b"/>
+  <text x="65" y="61" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">🌍 Traffic</text>
+  <line x1="110" y1="56" x2="150" y2="56" stroke="#0891b2" stroke-width="2" marker-end="url(#a5)"/>
+  <rect x="155" y="35" width="95" height="42" rx="5" fill="#fee2e2" stroke="#dc2626" stroke-width="1.8"/>
+  <text x="202" y="55" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">📦 Pod</text>
+  <text x="202" y="70" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">💀 crashes → DOWN</text>
+  <text x="270" y="62" class="s" fill="#dc2626" font-family="sans-serif" font-size="10px">site is dead for a few seconds ❌</text>
+
+  <line x1="20" y1="92" x2="700" y2="92" stroke="#e5e7eb"/>
+
+  <text x="15" y="115" class="b" fill="#16a34a" font-family="sans-serif" font-size="11.5px" font-weight="bold">AFTER — <tspan class="c" fill="#7c2d12" font-family="monospace" font-size="10px">kubectl scale deployment node-app --replicas=4</tspan></text>
+
+  <rect x="20" y="135" width="90" height="80" rx="5" fill="#f1f5f9" stroke="#64748b"/>
+  <text x="65" y="170" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">🌍 Traffic</text>
+  <text x="65" y="188" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">(heavy)</text>
+
+  <rect x="135" y="150" width="90" height="50" rx="5" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1.8"/>
+  <text x="180" y="171" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11.5px" font-weight="bold">🔀 SERVICE</text>
+  <text x="180" y="189" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">load balancer</text>
+  <line x1="110" y1="175" x2="130" y2="175" stroke="#0891b2" stroke-width="2" marker-end="url(#a5)"/>
+
+  <line x1="225" y1="175" x2="270" y2="145" stroke="#0891b2" stroke-width="1.8" marker-end="url(#a5)"/>
+  <line x1="225" y1="175" x2="270" y2="167" stroke="#0891b2" stroke-width="1.8" marker-end="url(#a5)"/>
+  <line x1="225" y1="175" x2="270" y2="190" stroke="#0891b2" stroke-width="1.8" marker-end="url(#a5)"/>
+  <line x1="225" y1="175" x2="270" y2="212" stroke="#0891b2" stroke-width="1.8" marker-end="url(#a5)"/>
+
+  <rect x="275" y="128" width="108" height="33" rx="4" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="329" y="149" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">📦 Pod 1 ✅</text>
+  <rect x="275" y="165" width="108" height="33" rx="4" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="329" y="186" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">📦 Pod 2 ✅</text>
+  <rect x="275" y="202" width="108" height="33" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-dasharray="3"/>
+  <text x="329" y="223" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">📦 Pod 3 💀</text>
+  <rect x="393" y="165" width="108" height="33" rx="4" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="447" y="186" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">📦 Pod 4 ✅</text>
+
+  <text x="520" y="150" class="b" fill="#16a34a" font-family="sans-serif" font-size="11.5px" font-weight="bold">✅ Pod 3 died…</text>
+  <text x="520" y="172" class="s" fill="#6b7280" font-family="sans-serif" font-size="10px">…but Pods 1, 2 &amp; 4</text>
+  <text x="520" y="190" class="s" fill="#6b7280" font-family="sans-serif" font-size="10px">keep serving traffic.</text>
+  <text x="520" y="216" class="b" fill="#16a34a" font-family="sans-serif" font-size="11.5px" font-weight="bold">DOWNTIME: 0 seconds</text>
+</svg>
