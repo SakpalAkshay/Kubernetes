@@ -1,9 +1,5 @@
 # Kubernetes — Complete Revision Notes
 
-> **Source:** 3-hour practical Kubernetes tutorial (Hindi) — translated, restructured, and expanded into English revision notes.
-> **Prerequisite:** Basic Docker knowledge (images, containers, `Dockerfile`).
-> **Style:** Concept → Why it matters → Command → Example → Gotchas.
-
 ---
 
 ## Table of Contents
