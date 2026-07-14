@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="740" height="190" viewBox="0 0 740 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Workflow from code to Docker image to registry to Kubernetes deployment">
+  
+  <defs>
+    <marker id="a3" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#0891b2"/>
+    </marker>
+  </defs>
+
+  <rect x="12" y="50" width="112" height="78" rx="7" fill="#fef3c7" stroke="#d97706" stroke-width="1.8"/>
+  <text x="68" y="72" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11.5px" font-weight="bold">1️⃣ CODE</text>
+  <text x="68" y="92" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">React / Node app</text>
+  <text x="68" y="110" class="c" text-anchor="middle" fill="#7c2d12" font-family="monospace" font-size="9.5px">+ Dockerfile</text>
+
+  <line x1="124" y1="89" x2="158" y2="89" stroke="#0891b2" stroke-width="2" marker-end="url(#a3)"/>
+
+  <rect x="163" y="50" width="118" height="78" rx="7" fill="#dbeafe" stroke="#2563eb" stroke-width="1.8"/>
+  <text x="222" y="72" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11.5px" font-weight="bold">2️⃣ BUILD</text>
+  <text x="222" y="92" class="c" text-anchor="middle" fill="#7c2d12" font-family="monospace" font-size="9.5px">docker build</text>
+  <text x="222" y="110" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">→ local image</text>
+
+  <line x1="281" y1="89" x2="315" y2="89" stroke="#0891b2" stroke-width="2" marker-end="url(#a3)"/>
+
+  <rect x="320" y="50" width="126" height="78" rx="7" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1.8"/>
+  <text x="383" y="72" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11.5px" font-weight="bold">3️⃣ PUSH</text>
+  <text x="383" y="92" class="c" text-anchor="middle" fill="#7c2d12" font-family="monospace" font-size="9.5px">docker push</text>
+  <text x="383" y="110" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">→ 🐳 Docker Hub</text>
+
+  <line x1="446" y1="89" x2="480" y2="89" stroke="#0891b2" stroke-width="2" marker-end="url(#a3)"/>
+
+  <rect x="485" y="50" width="126" height="78" rx="7" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8"/>
+  <text x="548" y="72" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11.5px" font-weight="bold">4️⃣ DEPLOY</text>
+  <text x="548" y="90" class="c" text-anchor="middle" fill="#7c2d12" font-family="monospace" font-size="9.5px">kubectl create</text>
+  <text x="548" y="104" class="c" text-anchor="middle" fill="#7c2d12" font-family="monospace" font-size="9.5px">deployment</text>
+  <text x="548" y="120" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">K8s pulls image ⤴</text>
+
+  <line x1="611" y1="89" x2="645" y2="89" stroke="#0891b2" stroke-width="2" marker-end="url(#a3)"/>
+
+  <rect x="650" y="50" width="78" height="78" rx="7" fill="#fce7f3" stroke="#db2777" stroke-width="1.8"/>
+  <text x="689" y="72" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11.5px" font-weight="bold">5️⃣ EXPOSE</text>
+  <text x="689" y="92" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">Service</text>
+  <text x="689" y="110" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">🌍 live!</text>
+
+  <text x="12" y="27" class="b" fill="#475569" font-family="sans-serif" font-size="11.5px" font-weight="bold">🔄 The Golden Workflow — repeat for every change</text>
+  <text x="12" y="160" class="s" fill="#6b7280" font-family="sans-serif" font-size="10px">⚠️ Step 3 is NOT optional. Kubernetes pulls from a registry — it cannot see images that only exist on your laptop.</text>
+  <text x="12" y="177" class="s" fill="#6b7280" font-family="sans-serif" font-size="10px">💡 Bump the version tag (:02 → :03) on every rebuild, or K8s may reuse a cached image.</text>
+</svg>

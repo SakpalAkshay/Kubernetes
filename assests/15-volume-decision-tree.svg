@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="720" height="280" viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Decision tree for choosing the right Kubernetes volume type">
+  
+  <defs>
+    <marker id="ac" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <text x="15" y="20" class="b" fill="#475569" font-family="sans-serif" font-size="11px" font-weight="bold">🌳 Which volume type should I use?</text>
+
+  <rect x="255" y="35" width="200" height="42" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.8"/>
+  <text x="355" y="52" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11px" font-weight="bold">Does the data need to</text>
+  <text x="355" y="68" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11px" font-weight="bold">survive a Pod restart?</text>
+
+  <line x1="300" y1="77" x2="155" y2="105" stroke="#64748b" stroke-width="1.6" marker-end="url(#ac)"/>
+  <text x="205" y="90" class="s" fill="#6b7280" font-family="sans-serif" font-size="9.5px">NO</text>
+  <line x1="410" y1="77" x2="530" y2="105" stroke="#64748b" stroke-width="1.6" marker-end="url(#ac)"/>
+  <text x="490" y="90" class="s" fill="#6b7280" font-family="sans-serif" font-size="9.5px">YES</text>
+
+  <rect x="55" y="110" width="195" height="58" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.8"/>
+  <text x="152" y="131" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11px" font-weight="bold">Use <tspan class="c" fill="#7c2d12" font-family="monospace" font-size="10px">emptyDir</tspan></text>
+  <text x="152" y="149" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">caches, scratch files,</text>
+  <text x="152" y="163" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">temp data 🗑️</text>
+
+  <rect x="440" y="110" width="215" height="45" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.8"/>
+  <text x="547" y="130" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11px" font-weight="bold">Multi-node or</text>
+  <text x="547" y="147" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11px" font-weight="bold">production cluster?</text>
+
+  <line x1="490" y1="155" x2="400" y2="190" stroke="#64748b" stroke-width="1.6" marker-end="url(#ac)"/>
+  <text x="425" y="172" class="s" fill="#6b7280" font-family="sans-serif" font-size="9.5px">NO</text>
+  <line x1="600" y1="155" x2="625" y2="190" stroke="#64748b" stroke-width="1.6" marker-end="url(#ac)"/>
+  <text x="623" y="172" class="s" fill="#6b7280" font-family="sans-serif" font-size="9.5px">YES</text>
+
+  <rect x="285" y="195" width="230" height="62" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8"/>
+  <text x="400" y="216" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11px" font-weight="bold">PV + PVC with <tspan class="c" fill="#7c2d12" font-family="monospace" font-size="10px">hostPath</tspan></text>
+  <text x="400" y="234" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">✅ what we used with Minikube</text>
+  <text x="400" y="250" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">single-node testing only ⚠️</text>
+
+  <rect x="530" y="195" width="180" height="62" rx="6" fill="#e0e7ff" stroke="#4f46e5" stroke-width="2"/>
+  <text x="620" y="216" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11px" font-weight="bold">☁️ CLOUD VOLUME</text>
+  <text x="620" y="234" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">AWS EBS CSI, Azure File,</text>
+  <text x="620" y="250" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">NFS, CSI drivers ⭐</text>
+
+  <rect x="20" y="195" width="230" height="62" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3"/>
+  <text x="135" y="215" class="b" text-anchor="middle" fill="#dc2626" font-family="sans-serif" font-size="11px" font-weight="bold">❌ NEVER: store data</text>
+  <text x="135" y="232" class="b" text-anchor="middle" fill="#dc2626" font-family="sans-serif" font-size="11px" font-weight="bold">inside the container</text>
+  <text x="135" y="249" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">(the default — data dies 💀)</text>
+</svg>

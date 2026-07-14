@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="740" height="330" viewBox="0 0 740 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Evolution of Kubernetes storage from container to pod to cluster level">
+  
+
+  <text x="15" y="20" class="b" fill="#475569" font-family="sans-serif" font-size="11px" font-weight="bold">📊 Where should the volume live? Three levels, increasing safety →</text>
+
+  <text x="20" y="48" class="b" fill="#dc2626" font-family="sans-serif" font-size="11px" font-weight="bold">❶ Inside the CONTAINER  (default — BAD)</text>
+  <rect x="20" y="58" width="215" height="105" rx="7" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="127" y="76" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">📦 Pod</text>
+  <rect x="38" y="84" width="180" height="65" rx="5" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.5"/>
+  <text x="128" y="102" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">🐳 Container</text>
+  <rect x="55" y="110" width="145" height="30" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-dasharray="3"/>
+  <text x="127" y="130" class="r" text-anchor="middle" fill="#dc2626" font-family="sans-serif" font-size="10px" font-weight="bold">💾 data (ephemeral)</text>
+  <text x="20" y="180" class="r" fill="#dc2626" font-family="sans-serif" font-size="10px" font-weight="bold">💀 Container restarts → DATA LOST</text>
+
+  <text x="262" y="48" class="b" fill="#d97706" font-family="sans-serif" font-size="11px" font-weight="bold">❷ Inside the POD  (better, still flawed)</text>
+  <rect x="262" y="58" width="215" height="105" rx="7" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="369" y="76" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">📦 Pod</text>
+  <rect x="278" y="84" width="112" height="45" rx="5" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.5"/>
+  <text x="334" y="103" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">🐳 Container</text>
+  <text x="334" y="120" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">mongo</text>
+  <rect x="398" y="84" width="64" height="45" rx="4" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="430" y="103" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">💾 vol</text>
+  <text x="430" y="120" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">(emptyDir)</text>
+  <line x1="390" y1="106" x2="396" y2="106" stroke="#d97706" stroke-width="2"/>
+  <text x="369" y="147" class="g" text-anchor="middle" fill="#16a34a" font-family="sans-serif" font-size="10px" font-weight="bold">✅ survives container restart</text>
+  <text x="262" y="180" class="r" fill="#dc2626" font-family="sans-serif" font-size="10px" font-weight="bold">💀 But POD restarts → volume dies too</text>
+
+  <text x="505" y="48" class="b" fill="#16a34a" font-family="sans-serif" font-size="11px" font-weight="bold">❸ At NODE / CLUSTER level ⭐ (BEST)</text>
+  <rect x="505" y="58" width="222" height="105" rx="7" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="616" y="75" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">🖥️ Node / Cluster</text>
+  <rect x="518" y="82" width="90" height="42" rx="5" fill="#eff6ff" stroke="#3b82f6"/>
+  <text x="563" y="99" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">📦 Pod 1</text>
+  <text x="563" y="115" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">🐳 mongo</text>
+  <rect x="632" y="82" width="82" height="42" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="673" y="99" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11px" font-weight="bold">💾 PV</text>
+  <text x="673" y="115" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="9.5px">persistent</text>
+  <line x1="608" y1="103" x2="630" y2="103" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="616" y="145" class="g" text-anchor="middle" fill="#16a34a" font-family="sans-serif" font-size="10px" font-weight="bold">✅ OUTSIDE the pod ✅</text>
+  <text x="505" y="180" class="g" fill="#16a34a" font-family="sans-serif" font-size="10px" font-weight="bold">✅ Survives container + pod + node restart</text>
+
+  <rect x="20" y="200" width="707" height="110" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="4"/>
+  <text x="35" y="222" class="b" fill="#1f2937" font-family="sans-serif" font-size="11px" font-weight="bold">🎯 Additional benefits of level ❸ (Persistent Volume):</text>
+  <text x="45" y="245" class="s" fill="#6b7280" font-family="sans-serif" font-size="9.5px">• <tspan font-weight="bold">Shared across replicas</tspan> — multiple Pods can target the SAME volume → solves the split-database bug from §12</text>
+  <text x="45" y="266" class="s" fill="#6b7280" font-family="sans-serif" font-size="9.5px">• <tspan font-weight="bold">Independent lifecycle</tspan> — "a PV exists beyond the lifetime of any Pod" (per the official docs)</text>
+  <text x="45" y="287" class="s" fill="#6b7280" font-family="sans-serif" font-size="9.5px">• <tspan font-weight="bold">Cloud-backed option</tspan> — use AWS EBS / Azure Files etc. so even a total server failure doesn't lose data ☁️</text>
+</svg>

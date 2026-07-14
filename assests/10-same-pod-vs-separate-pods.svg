@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="720" height="270" viewBox="0 0 720 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparison of running containers in the same pod versus separate pods">
+  
+  <text x="15" y="20" class="b" fill="#d97706" font-family="sans-serif" font-size="11.5px" font-weight="bold">Approach A — Same Pod</text>
+  <rect x="15" y="30" width="330" height="225" rx="8" fill="#fffbeb" stroke="#d97706" stroke-dasharray="4"/>
+
+  <rect x="40" y="50" width="280" height="115" rx="7" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="180" y="72" class="b" text-anchor="middle" fill="#15803d" font-family="sans-serif" font-size="11.5px" font-weight="bold">📦 ONE POD</text>
+  <rect x="58" y="83" width="120" height="68" rx="5" fill="#fef9c3" stroke="#ca8a04"/>
+  <text x="118" y="104" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11.5px" font-weight="bold">🐳 Node</text>
+  <text x="118" y="122" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">Web UI</text>
+  <text x="118" y="140" class="c" text-anchor="middle" fill="#7c2d12" font-family="monospace" font-size="9.5px">:3000</text>
+  <rect x="186" y="83" width="118" height="68" rx="5" fill="#fef9c3" stroke="#ca8a04"/>
+  <text x="245" y="104" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11.5px" font-weight="bold">🐳 Mongo</text>
+  <text x="245" y="122" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">Database</text>
+  <text x="245" y="140" class="c" text-anchor="middle" fill="#7c2d12" font-family="monospace" font-size="9.5px">:27017</text>
+
+  <text x="180" y="182" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">They talk via <tspan class="c" fill="#7c2d12" font-family="monospace" font-size="9.5px">localhost</tspan> ✅ (shared network)</text>
+  <text x="32" y="205" class="s" fill="#16a34a" font-family="sans-serif" font-size="10px">✅ Simple — no extra setup needed</text>
+  <text x="32" y="223" class="s" fill="#dc2626" font-family="sans-serif" font-size="10px">❌ replicas: 2 → TWO SEPARATE DATABASES!</text>
+  <text x="32" y="241" class="s" fill="#dc2626" font-family="sans-serif" font-size="10px">❌ Data splits &amp; appears to "vanish" 💀</text>
+
+  <text x="375" y="20" class="b" fill="#16a34a" font-family="sans-serif" font-size="11.5px" font-weight="bold">Approach B — Separate Pods ⭐</text>
+  <rect x="375" y="30" width="330" height="225" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-dasharray="4"/>
+
+  <rect x="395" y="50" width="130" height="95" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="460" y="70" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11.5px" font-weight="bold">📦 Pod A</text>
+  <rect x="410" y="80" width="100" height="52" rx="4" fill="#fef9c3" stroke="#ca8a04"/>
+  <text x="460" y="100" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11.5px" font-weight="bold">🐳 Node</text>
+  <text x="460" y="118" class="c" text-anchor="middle" fill="#7c2d12" font-family="monospace" font-size="9.5px">:3000</text>
+
+  <rect x="555" y="50" width="130" height="95" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="620" y="70" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11.5px" font-weight="bold">📦 Pod B</text>
+  <rect x="570" y="80" width="100" height="52" rx="4" fill="#fef9c3" stroke="#ca8a04"/>
+  <text x="620" y="100" class="b" text-anchor="middle" fill="#1f2937" font-family="sans-serif" font-size="11.5px" font-weight="bold">🐳 Mongo</text>
+  <text x="620" y="118" class="c" text-anchor="middle" fill="#7c2d12" font-family="monospace" font-size="9.5px">:27017</text>
+
+  <line x1="525" y1="97" x2="553" y2="97" stroke="#4f46e5" stroke-width="2" stroke-dasharray="3"/>
+  <rect x="440" y="160" width="200" height="30" rx="5" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1.5"/>
+  <text x="540" y="180" class="c" text-anchor="middle" fill="#7c2d12" font-family="monospace" font-size="9.5px">service-mongodb:27017</text>
+  <text x="540" y="207" class="s" text-anchor="middle" fill="#6b7280" font-family="sans-serif" font-size="10px">They talk via the SERVICE NAME 🔑</text>
+
+  <text x="392" y="230" class="s" fill="#16a34a" font-family="sans-serif" font-size="10px">✅ Scale the web tier independently</text>
+  <text x="392" y="248" class="s" fill="#16a34a" font-family="sans-serif" font-size="10px">✅ ONE shared database — data is consistent</text>
+</svg>
